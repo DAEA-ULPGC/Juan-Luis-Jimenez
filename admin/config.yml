@@ -1,17 +1,31 @@
 backend:
   name: git-gateway
-  branch: main   # ← Cambia a "gh-pages" si tu GitHub Pages usa esa rama
+  branch: main    # o master si tu rama se llama así
 
-media_folder: "images/uploads"     # Carpeta donde se guardarán las imágenes
-public_folder: "/images/uploads"   # Ruta pública para ver las imágenes
+media_folder: "img"           # carpeta donde se subirán las imágenes
+public_folder: "/img"         # ruta pública para mostrarlas
 
 collections:
-  - name: "paginas"
-    label: "Páginas"
+  - name: "configuracion"
+    label: "Configuración general"
     files:
-      - label: "Página de Inicio"
-        name: "inicio"
-        file: "index.md"
+      - label: "Datos de la empresa"
+        name: "datos"
+        file: "data/datos.json"        # se creará esta carpeta y archivo automáticamente
         fields:
-          - { label: "Título de la página", name: "title", widget: "string" }
-          - { label: "Texto principal", name: "body", widget: "markdown" }
+          - { label: "Nombre del negocio", name: "nombre", widget: "string" }
+          - { label: "Teléfono", name: "telefono", widget: "string" }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "Dirección", name: "direccion", widget: "text" }
+          - { label: "Horario", name: "horario", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }
+
+  - name: "servicios"
+    label: "Servicios / Precios"
+    folder: "data/servicios"
+    create: true
+    fields:
+      - { label: "Nombre del servicio", name: "titulo", widget: "string" }
+      - { label: "Precio", name: "precio", widget: "string" }
+      - { label: "Descripción corta", name: "descripcion", widget: "text" }
+      - { label: "Imagen (opcional)", name: "imagen", widget: "image", required: false }
