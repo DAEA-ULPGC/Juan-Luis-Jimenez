@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
-  branch: main  # o tu rama
+backend:
+  name: github
+  branch: main
+  repo: DAEA-ULPGC/Juan-Luis-Jimenez   # ejemplo: hugoramirez/juan-luis
 
 media_folder: "img/uploads"  # donde se guardan imágenes subidas
 public_folder: "/img/uploads"  # ruta pública
