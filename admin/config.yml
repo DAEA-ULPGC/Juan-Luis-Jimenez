@@ -1,1 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main   # ← Cambia a "gh-pages" si tu GitHub Pages usa esa rama
 
+media_folder: "images/uploads"     # Carpeta donde se guardarán las imágenes
+public_folder: "/images/uploads"   # Ruta pública para ver las imágenes
+
+collections:
+  - name: "paginas"
+    label: "Páginas"
+    files:
+      - label: "Página de Inicio"
+        name: "inicio"
+        file: "index.md"
+        fields:
+          - { label: "Título de la página", name: "title", widget: "string" }
+          - { label: "Texto principal", name: "body", widget: "markdown" }
